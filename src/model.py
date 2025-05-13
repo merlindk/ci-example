@@ -18,7 +18,8 @@ def train_model(X, y):
     model = LinearRegression()
     model.fit(X, y)
     predictions = model.predict(X)
-    rmse = mean_squared_error(y, predictions, squared=False)
+    mse = mean_squared_error(y, predictions)
+    rmse = mse ** 0.5
 
     with mlflow.start_run():
         mlflow.log_metric("rmse", rmse)
