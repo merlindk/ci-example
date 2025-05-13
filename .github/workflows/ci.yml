@@ -22,7 +22,7 @@ jobs:
 
       - name: Run unit tests
         env:
-          MLFLOW_TRACKING_URI: https://mlflow-phf4.onrender.com
+          MLFLOW_TRACKING_URI: https://mlflow-25k0.onrender.com
         run: |
           export PYTHONPATH=$PYTHONPATH:$(pwd)
           pytest tests/ --maxfail=1 --disable-warnings -q
