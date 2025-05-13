@@ -4,6 +4,7 @@ from sklearn.metrics import mean_squared_error
 
 import mlflow
 import mlflow.sklearn
+import os
 
 def normalize_data(data):
     """Normaliza una lista de valores numéricos (media 0, varianza 1)."""
