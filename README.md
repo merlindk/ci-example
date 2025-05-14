@@ -42,6 +42,7 @@ ml-ci-example/
 │   └── train.py         # Model training script
 ├── tests/
 │   ├── test_train.py    # Basic unit tests
+├── it/
 │   └── latency_check.py # Standalone latency test
 ├── serve.py             # FastAPI model server
 ├── test_api.py          # Script to test deployed API
