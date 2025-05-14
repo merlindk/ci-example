@@ -45,7 +45,7 @@ jobs:
           
       - name: Run latency test on saved model
         run: |
-          PYTHONPATH=. pytest it/latency_check.py
+          PYTHONPATH=. pytest it/latency_check.py --capture=tee-sys
           
       - name: Commit updated model to main (trigger Render deploy)
         run: |

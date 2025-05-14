@@ -9,6 +9,7 @@ def test_model_accuracy():
     X_train, X_test, y_train, y_test = train.load_data()
     model = train.train_model(X_train, y_train)
     accuracy = train.evaluate_model(model, X_test, y_test)
+    print("Accuracy: ", accuracy)
     assert accuracy > 0.7, "Model accuracy should be greater than 70%"
 
 def test_classification_report():
@@ -30,6 +31,7 @@ def test_model_with_noise():
     model = train.train_model(X_train, y_train)
     X_test_noisy = X_test + np.random.normal(0, 0.1, X_test.shape)
     noisy_accuracy = accuracy_score(y_test, model.predict(X_test_noisy))
+    print("Noisy Accuracy: ", noisy_accuracy)
     assert noisy_accuracy > 0.5, f"Model not robust to noise: {noisy_accuracy:.2f}"
 
 def test_input_output_contract():
@@ -38,4 +40,5 @@ def test_input_output_contract():
     sample = X_test[0]
     assert isinstance(sample, np.ndarray)
     pred = model.predict(sample.reshape(1, -1))
+    print("Pred Shape: ", pred)
     assert pred.shape == (1,), "Unexpected prediction shape"
