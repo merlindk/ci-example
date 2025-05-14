@@ -8,7 +8,7 @@ def load_data():
     return train_test_split(data.data, data.target, test_size=0.2, random_state=42)
 
 def train_model(X_train, y_train):
-    model = LogisticRegression(max_iter=200)
+    model = LogisticRegression(max_iter=201)
     model.fit(X_train, y_train)
     return model
 
