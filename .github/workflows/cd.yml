@@ -53,5 +53,5 @@ jobs:
           git config user.email "actions@github.com"
           git pull origin main
           git add model.joblib
-          git commit -m "CD: update model artifact"
+          git commit -m "CD: update model artifact" || echo "Nothing to commit"
           git push origin main
