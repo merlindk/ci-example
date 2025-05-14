@@ -7,6 +7,7 @@ on:
 
 jobs:
   deliver:
+    if: "!contains(github.event.head_commit.message, 'CD: update model artifact')"
     runs-on: ubuntu-latest
 
     steps:
@@ -48,7 +49,6 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git pull origin main
-          cp model.joblib ./model.joblib
           git add model.joblib
           git commit -m "CD: update model artifact"
           git push origin main
