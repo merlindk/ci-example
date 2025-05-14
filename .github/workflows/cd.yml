@@ -33,3 +33,12 @@ jobs:
         with:
           name: trained-model
           path: model.joblib
+          
+      - name: Download model artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: trained-model
+          
+      - name: Run latency test on saved model
+        run: |
+          PYTHONPATH=. python tests/latency_check.py
