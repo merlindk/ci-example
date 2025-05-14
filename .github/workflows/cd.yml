@@ -42,3 +42,13 @@ jobs:
       - name: Run latency test on saved model
         run: |
           PYTHONPATH=. python tests/latency_check.py
+          
+      - name: Commit updated model to main (trigger Render deploy)
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git pull origin main
+          cp model.joblib ./model.joblib
+          git add model.joblib
+          git commit -m "CD: update model artifact"
+          git push origin main
